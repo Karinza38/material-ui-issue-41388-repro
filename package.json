@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "latest",
-    "@emotion/react": "latest",
-    "@emotion/styled": "latest",
+    "@emotion/cache": "~11.11.0",
+    "@emotion/react": "~11.11.0",
+    "@emotion/styled": "~11.11.0",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/material-nextjs": "latest",

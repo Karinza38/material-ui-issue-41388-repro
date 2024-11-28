@@ -1,33 +1,73 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import NextLink from 'next/link';
-import ProTip from '@/components/ProTip';
-import Copyright from '@/components/Copyright';
+"use client";
+import { useState } from "react";
+import Tabs, { TabsProps } from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import CustomTabPanel from "./CustomTabPanel";
 
-export default function Home() {
+const a11yProps = (index) => {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+};
+
+const items = [
+  "Item One",
+  "Item Two",
+  "Item Three",
+  "Item Four",
+  "Item Five",
+  "Item Six",
+  "Item Seven",
+  "Item Eight",
+  "Item Nine",
+  "Item Ten",
+];
+
+const BasicTabs = () => {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (_, newValue) => {
+    setValue(newValue);
+  };
+
+  const scrollableProps = {
+    variant: "scrollable",
+    scrollButtons: true,
+    allowScrollButtonsMobile: true,
+  };
+
   return (
-    <Container maxWidth="lg">
-      <Box
-        sx={{
-          my: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          Material UI - Next.js App Router example in JavaScript
-        </Typography>
-        <Link href="/about" color="secondary" component={NextLink}>
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
+    <Box sx={{ width: "100%", m: 2 }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          selectionFollowsFocus
+          {...scrollableProps}
+        >
+          {items.map((item, index) => {
+            return (
+              <Tab key={`tab-${index}`} label={item} {...a11yProps(index)} />
+            );
+          })}
+        </Tabs>
       </Box>
-    </Container>
+      {items.map((item, index) => {
+        return (
+          <CustomTabPanel
+            key={`tab-panel-${index}`}
+            value={value}
+            index={index}
+          >
+            {item}
+          </CustomTabPanel>
+        );
+      })}
+    </Box>
   );
-}
+};
+
+export default BasicTabs;
