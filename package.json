@@ -9,16 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "~11.11.0",
-    "@emotion/react": "~11.11.0",
-    "@emotion/styled": "~11.11.0",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@mui/system": "latest",
     "@mui/material-nextjs": "latest",
+    "@mui/styled-engine-sc": "latest",
     "eslint": "latest",
     "eslint-config-next": "15.0.3",
     "next": "15.0.3",
+    "next-transpile-modules": "^10.0.1",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "styled-components": "^6.1.13"
   }
 }
